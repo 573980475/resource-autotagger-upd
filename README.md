@@ -2,7 +2,7 @@
 
 此解决方案利用两项核心服务 — AWS Resource Explorer 和 AWS CloudTrail。它包括在 Amazon CloudWatch Events 中创建的规则，用于安排标记过程。AWS Lambda 函数和 Amazon DynamoDB 表有助于将未标记的资源映射到其相应的 CloudTrail 创建事件。
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/39b14544-f402-49ed-b278-51433cd16354/Untitled.png)
+![image](https://github.com/user-attachments/assets/47311799-3e53-44ad-8800-83b706b2f1f8)
 
 1. EventBridge 计划程序规则设置为每 30 分钟运行一次，以检测创建的任何新资源。
 2. 计划程序规则将触发 Lambda 函数。
@@ -52,39 +52,38 @@
 
 1. 进入 Resource Explorer，进入设置，为需要打标签的区域创建索引
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/72164336-f2bf-43eb-ac96-93a4b9a60fc6/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/bb35bef6-978c-4d48-8630-31b0d24be1e1)
     
 2. 选择所需的区域，并创建
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/daa2375d-2d00-4319-92bd-cd69f6cc6bcf/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/d31c530d-56aa-4ed1-bb72-bffd2da95adf)
     
 3. 为已选的区域创建视图，每个区域都需要创建一个视图
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/825b44be-348e-46cf-acf6-b8a8a2add3d1/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/11507b58-3ef8-4279-a473-568afa64c57d)
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/c197962d-1934-4f08-af13-4d9d8439ffe3/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/90e489a8-e9ae-4145-b3ae-1bbc56f31618)
     
 
 ### 前提条件 —— 启用 CloudTrail 并创建跟踪
 
 1. 进入 CloudTrail→跟踪，创建一个跟踪
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/d9e1abed-83da-40a3-b9e2-eed1bd87cc9c/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/98c38238-3917-4419-b225-4bda909c28a0)
     
 2. 自定义一个跟踪名称和 KMS 密钥名称，建议选择新建 S3 来存储 Trail 日志
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/d4955e30-56fc-49f9-a7d0-e6cfd56c0cbc/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/660d7630-c5af-48e8-8d59-e187a7d125e4)
     
 3. 只需要开启管理事件，及其的写入、读取记录
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/8ad7bf34-4544-4707-ace5-67cfff838d21/Untitled.png)
-    
+    ![image](https://github.com/user-attachments/assets/bb410213-bbf0-4564-b140-c4f1b084a4a1)    
 
 ### 解决方案部署
 
 1. 建议使用 AWS CloudShell 作为 CDK 执行环境
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/5e0e218d-737f-49c9-9e11-920b6db53387/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/5209b3b1-4832-404b-b23a-c83d3b1daa8a)
     
 2. 跟随以下流程，准备 CDK 环境，通过 CDK 部署解决方案
     - 切换到 root 用户（以在 CloudShell 中获得足够的磁盘空间）
@@ -117,7 +116,7 @@
         `cdk deploy`
         
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/bbddeaf4-502e-4256-9810-ef336a069e97/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/3d30e667-bc4d-45e1-bd7a-e1c18041e9c2)
     
 4. 至此完成了解决方案的部署。如需在部署后自定义标签键值，或标签范围，请参考附件。
 
@@ -180,7 +179,7 @@ https://www.intelligentdiscovery.io/tools/cloudtrailevents
 
 1. 在 Lambda 中找到开头为 ResourceAutoTagCdkStack-resourceautotag 的函数
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/c3c2fc17-e783-4870-a80f-fcc9a7d612ce/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/b9d8256d-4efc-4627-91c3-5480af7b6574)
     
 2. 在 Lambda 代码中找到以下代码段，并将引号内的内容改为要自定义的标签键、标签值
     
@@ -189,7 +188,7 @@ https://www.intelligentdiscovery.io/tools/cloudtrailevents
     const TAG_VALUE = '';
     ```
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/41b268b9-8071-4a23-8b08-1f2e53c08cb1/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/0a4dd6c1-6f36-47a2-aa7b-ac2658bf4de1)
     
 
 ### 附件 2：部署后如何自定义自动标签范围
@@ -206,40 +205,40 @@ https://www.intelligentdiscovery.io/tools/cloudtrailevents
 
 1. 确认 CloudTrail 中的事件源
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/1e9a9a78-6759-4230-afd7-db8130445a4b/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/e08c9685-2be4-48b3-a9de-651c71db536c)
     
 2. 确认 CloudTrail 中的事件名称（提供多种查询途径）
     - AWS CloudTrail 控制台（无法根据服务筛选）
         
-        ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/ac56c9cb-ceba-4cf0-affc-a062830d5c0f/Untitled.png)
+        ![image](https://github.com/user-attachments/assets/2ef72d48-a8f2-4b52-8c99-3d3ae1297f2f)
         
     - AWS CLI 或 SDK 文档（注意大小写，找到之后最好去 CloudTrail 控制台核实）
         
         https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/index.html
         
-        ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/ef0d910a-fb49-4a9d-9113-f92ec30e4a8e/Untitled.png)
+        ![image](https://github.com/user-attachments/assets/ef4d4267-777d-401d-af41-0a2b150f3e91)
         
     - 第三方 CloudTrail 事件名称列表（数据不是最新）
         
         https://www.gorillastack.com/blog/real-time-events/cloudtrail-event-names/
         
-        ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/1d66d305-8aca-420a-8e52-a6c38b61880b/Untitled.png)
+        ![image](https://github.com/user-attachments/assets/333beb40-295a-449c-9d3a-aa9ae5d96ddd)
         
     - 第三方 CloudTrail 事件名称查询器（数据不是最新）
         
         https://www.intelligentdiscovery.io/tools/cloudtrailevents
         
-        ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/003a5e72-adca-44e9-8230-41529a415a46/Untitled.png)
+        ![image](https://github.com/user-attachments/assets/5982828b-3ffe-414f-b417-ee44c2920e90)
         
 3. 确认 Resource Explorer 中的资源类型
     
     https://docs.aws.amazon.com/zh_cn/resource-explorer/latest/userguide/supported-resource-types.html
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/6d95e0c3-7847-4bcf-be92-fc87d8f19711/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/4da60dd5-d509-4d8b-b908-1c45f3260e3c)
     
 4. 在 S3 中找到开头为 `resourceautotagcdkstack-resourceautotagbucket` 的桶，下载桶中的 `mapping.json` 文件
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/209f756e-78f8-40a3-8e8b-e4a21fc5bbda/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/35c1e12b-1895-4dec-a23f-d1518a594e2b)
     
 5. 编辑该 JSON 文件，添加上述 EventName、EventSource、ResourceType
     
@@ -263,7 +262,7 @@ https://www.intelligentdiscovery.io/tools/cloudtrailevents
 6. 将修改后的 `mapping.json` 文件上传覆盖即可。
 7. 在 IAM Role 中找到 inlinePolicy 并编辑
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/01c0b526-942f-491f-bae8-4fe3dcbc32be/1eec24c7-3da5-461a-b809-3c50d79eb32b/Untitled.png)
+    ![image](https://github.com/user-attachments/assets/fc92ab98-93e5-4901-b5fa-a2a68d8fb66c)
     
 8. 针对上文中 RDS 的自动标签例子，则需要新增的权限为：
     
