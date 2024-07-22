@@ -12,8 +12,8 @@ const ssmClient = new SSMClient();
 const rgtaClient = new ResourceGroupsTaggingAPIClient();
 const s3Client = new S3Client();
 
-const TAG_KEY = 'blog';
-const TAG_VALUE = 'ResourceAutoTagEnhanced';
+const TAG_KEY = 'TestAutoTagging';
+const TAG_VALUE = 'ResourceAutoTag';
 const DURATION_IN_MINUTES = 14400;
 
 async function arnFinder(jsonObject, searchedArn, searchedId) {
