@@ -1,0 +1,154 @@
+{
+  "version": "33.0.0",
+  "artifacts": {
+    "ResourceAutoTagCdkStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ResourceAutoTagCdkStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ResourceAutoTagCdkStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "ResourceAutoTagCdkStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/ddc8c0a3b590fca7e8093396c3ccc53604a6125b06a9bbc41a36b9a86a0b8e11.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ResourceAutoTagCdkStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "ResourceAutoTagCdkStack.assets"
+      ],
+      "metadata": {
+        "/ResourceAutoTagCdkStack/AccessLogsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AccessLogsBucket83982689"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/AccessLogsBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AccessLogsBucketPolicy7F77476F"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/AccessLogsBucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AccessLogsBucketAutoDeleteObjectsCustomResource93F9213A"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/resource-auto-tag-bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "resourceautotagbucket3AE2D7A0"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/resource-auto-tag-bucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "resourceautotagbucketPolicy54E4BEF5"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/Custom::LambdaS3LoaderCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomLambdaS3LoaderCustomResourceProviderRole98B3E0B2"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/Custom::LambdaS3LoaderCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomLambdaS3LoaderCustomResourceProviderHandler86919279"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/LambdaS3LoaderCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaS3LoaderCustomResource"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/ResourceAutoTagSchedulerLambdaRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ResourceAutoTagSchedulerLambdaRole9FC430CB"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/resource-auto-tag1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "resourceautotag12FCD995D"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/ResourceAutoTagScheduleRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ResourceAutoTagScheduleRule50E1068A"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/ResourceAutoTagScheduleRule/AllowEventRuleResourceAutoTagCdkStackresourceautotag11B4169E9": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ResourceAutoTagScheduleRuleAllowEventRuleResourceAutoTagCdkStackresourceautotag11B4169E93AFECAB4"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ResourceAutoTagCdkStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ResourceAutoTagCdkStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
